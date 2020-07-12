@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e98e30c8eff3724f8c7286170fc05e8, type: 3}
+  m_Name: EventDataDB
+  m_EditorClassIdentifier: 
+  totalCloth: 3
+  database:
+  - {fileID: 11400000, guid: b0acfbd80c94b4344add8302ca19c33d, type: 2}
+  - {fileID: 11400000, guid: 6d91625a68fcf274591d17f8aaa6bab6, type: 2}
+  - {fileID: 11400000, guid: acc67650f3400284fb85a3006a181261, type: 2}
+  - {fileID: 11400000, guid: 6e34b355ac36e754eb9d1ce345612241, type: 2}
+  - {fileID: 11400000, guid: f89a15ec61db1584795e14b78e7c20d0, type: 2}
