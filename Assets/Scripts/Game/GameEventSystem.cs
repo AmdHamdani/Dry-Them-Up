@@ -1,16 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GameEventSystem : SingletonBehaviour<GameEventSystem>
 {
 
+    public ClothState threshold;
     public EventData currentEvent;
     public OptionResult result;
     public EventDataDB database;
+    public DragAndDropComponent[] components;
+
+    private void Awake()
+    {
+        components = FindObjectsOfType<DragAndDropComponent>();    
+    }
 
     private void Start()
     {
-        Debug.Log("LOAD");
         database = EventDataDB.Load();
+
+        InGameUI.Instance.skyText.text = string.Empty;
+        InGameUI.Instance.leftChoiceText.text = string.Empty;
+        InGameUI.Instance.rightChoiceText.text = string.Empty;
     }
 
     public void SetEventData()
@@ -35,6 +46,19 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
                 Debug.Log("RESULT : " + result);
             });
         }
+    }
+
+    private bool IsTrue()
+    {
+        int counter = 0;
+        foreach(var item in components) {
+            if(item.state == threshold)
+            {
+                counter++;
+            }
+        };
+
+        return counter == components.Length;
     }
 
 }

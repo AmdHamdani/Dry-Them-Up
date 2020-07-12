@@ -2,6 +2,7 @@
 
 public class DragAndDropComponent : MonoBehaviour
 {
+    public ClothState state;
 
     private bool isDragging;
     private bool isTouchLine;
@@ -9,7 +10,6 @@ public class DragAndDropComponent : MonoBehaviour
     private bool isEventActive;
     private float interval;
     private float targetTime;
-    private ClothState state;
     private Vector3 defaultPos;
     private Vector3 currentPosition;
 
