@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a8bfcd14c9b9594eb9785e17d265b77, type: 3}
-  m_Name: WeatherCombinationData
+  m_Name: WeatherDataDB
   m_EditorClassIdentifier: 
   combinations:
   - main: sunny
