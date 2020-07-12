@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeatherCombinationData", menuName = "Game/New Weather Combination")]
-public class WeatherCombinationData : ScriptableObject
+[CreateAssetMenu(fileName = "WeatherDataDB", menuName = "Game/New Weather Combination")]
+public class WeatherDataDB : ScriptableObject
 {
     public List<WeatherCombination> combinations = new List<WeatherCombination>();
 
-    public static WeatherCombinationData Load(string fileName = "WeatherCombinationData")
+    public static WeatherDataDB Load(string fileName = "Weather/WeatherDataDB")
     {
-        return Resources.Load<WeatherCombinationData>(fileName);
+        return Resources.Load<WeatherDataDB>(fileName);
     }
 
     public WeatherResult GetResult(string main, string secondary)

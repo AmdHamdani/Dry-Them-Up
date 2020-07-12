@@ -12,12 +12,12 @@ public class WeatherSystem : MonoBehaviour
     public WeatherResult result;
 
     private InGameUIComponent inGameUI;
-    private WeatherCombinationData weatherData;
+    private WeatherDataDB weatherData;
 
     private void Awake()
     {
         inGameUI = GetComponent<InGameUIComponent>();
-        weatherData = WeatherCombinationData.Load();
+        weatherData = WeatherDataDB.Load();
     }
 
     private void Start()
