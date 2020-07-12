@@ -16,7 +16,7 @@ MonoBehaviour:
   eventText: I just remeber I need to meet my friend . . .
   choiceOne:
     choice: Ok, let's go
-    result: random 3
-  ChoiceTwo:
-    choice: I guess I can't
-    result: 3
+    result: 2
+  choiceTwo:
+    choice: Nope Iam busy
+    result: 1

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d8958f06678ae42a981d90dc8dd758, type: 3}
   m_Name: Sleepy
   m_EditorClassIdentifier: 
-  eventName: 
-  eventText: 
+  eventName: sleepy
+  eventText: This is make me sleepy . . .
   choiceOne:
-    choice: 
-    result: 
-  ChoiceTwo:
-    choice: 
-    result: 
+    choice: Take a nap
+    result: 2
+  choiceTwo:
+    choice: I can't
+    result: 1

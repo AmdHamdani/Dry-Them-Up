@@ -16,7 +16,7 @@ MonoBehaviour:
   eventText: "I need to finish my homework . . .\t"
   choiceOne:
     choice: Let's finish it
-    result: random 3
-  ChoiceTwo:
+    result: 1
+  choiceTwo:
     choice: 
-    result: 
+    result: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   eventText: I have nothing to do . . .
   choiceOne:
     choice: Just Wait
-    result: 3
-  ChoiceTwo:
+    result: 1
+  choiceTwo:
     choice: 
-    result: 
+    result: 0

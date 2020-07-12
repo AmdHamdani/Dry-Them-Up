@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d8958f06678ae42a981d90dc8dd758, type: 3}
   m_Name: Hungry
   m_EditorClassIdentifier: 
-  eventName: 
-  eventText: 
+  eventName: hungry
+  eventText: Need to have some food . . .
   choiceOne:
-    choice: 
-    result: 0
-  ChoiceTwo:
+    choice: Buy some food
+    result: 2
+  choiceTwo:
     choice: 
     result: 0
