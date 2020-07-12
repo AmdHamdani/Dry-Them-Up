@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class WeatherSystem : MonoBehaviour
@@ -11,20 +10,18 @@ public class WeatherSystem : MonoBehaviour
     public Weather secondaryWeather;
     public WeatherResult result;
 
-    private InGameUIComponent inGameUI;
     private WeatherDataDB weatherData;
 
     private void Awake()
     {
-        inGameUI = GetComponent<InGameUIComponent>();
         weatherData = WeatherDataDB.Load();
     }
 
     private void Start()
     {
         SetWeather();
-
-        inGameUI.skyText.text = mainWeather.GetText();
+        Debug.Log(mainWeather.GetText());
+        InGameUI.Instance.skyText.text = mainWeather.GetText();
     }
 
     public void SetWeather()
@@ -37,6 +34,6 @@ public class WeatherSystem : MonoBehaviour
 
     public void SetSkyText(string text)
     {
-        inGameUI.skyText.text = text;
+        InGameUI.Instance.skyText.text = text;
     }
 }
