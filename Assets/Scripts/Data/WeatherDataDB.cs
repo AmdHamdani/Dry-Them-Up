@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "WeatherDataDB", menuName = "Game/New Weather Combination")]
@@ -16,8 +15,9 @@ public class WeatherDataDB : ScriptableObject
     {
         WeatherCombination data = null;
 
-        combinations.ForEach((item) => {
-            if(item.main == main && item.secondary == secondary)
+        combinations.ForEach((item) =>
+        {
+            if (item.main == main && item.secondary == secondary)
             {
                 data = item;
             }

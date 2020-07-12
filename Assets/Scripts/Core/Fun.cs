@@ -32,14 +32,17 @@ public sealed class Fun
         return value ? 1 : 0;
     }
 
-    public static bool ToBool(int value) {
+    public static bool ToBool(int value)
+    {
         return value == 1;
     }
 
-    public static IEnumerator LoadSceneAsync(string sceneName, float wait = 2, System.Action<float> OnLoading = null, System.Action OnComplete = null) {
+    public static IEnumerator LoadSceneAsync(string sceneName, float wait = 2, System.Action<float> OnLoading = null, System.Action OnComplete = null)
+    {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         operation.allowSceneActivation = false;
-        while(operation.progress < .9f) {
+        while (operation.progress < .9f)
+        {
             OnLoading?.Invoke(operation.progress);
 
             yield return null;
@@ -49,10 +52,14 @@ public sealed class Fun
         operation.allowSceneActivation = true;
     }
 
-    public static void When(bool condition, System.Action OnTrue, System.Action OnFalse = null) {
-        if(condition) {
+    public static void When(bool condition, System.Action OnTrue, System.Action OnFalse = null)
+    {
+        if (condition)
+        {
             OnTrue?.Invoke();
-        } else {
+        }
+        else
+        {
             OnFalse?.Invoke();
         }
     }

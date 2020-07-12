@@ -7,7 +7,7 @@ public class ClothStateInterval : BaseSingleton<ClothStateInterval>
 
     public float GetInterval(ClothState state)
     {
-        switch(state)
+        switch (state)
         {
             case ClothState.Wet: return wet;
             case ClothState.MostlyWet: return mostlyWet;
