@@ -7,7 +7,7 @@ public class EventData : ScriptableObject
     [TextArea]
     public string eventText;
     public OptionStr choiceOne;
-    public OptionStr ChoiceTwo;
+    public OptionStr choiceTwo;
 }
 
 [System.Serializable]
