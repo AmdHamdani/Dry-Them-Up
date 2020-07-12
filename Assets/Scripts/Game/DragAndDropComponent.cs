@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DragAndDropComponent : MonoBehaviour
 {
@@ -8,6 +6,7 @@ public class DragAndDropComponent : MonoBehaviour
     private bool isDragging;
     private bool isTouchLine;
     private bool isDrying;
+    private bool isEventActive;
     private float interval;
     private float targetTime;
     private ClothState state;
@@ -27,9 +26,17 @@ public class DragAndDropComponent : MonoBehaviour
 
         interval -= Time.deltaTime;
 
-        if(interval <= 0)
+        if (!isEventActive && state == ClothState.MostlyWet)
         {
-            switch(state)
+            GameEventSystem.Instance.SetEventData();
+            isEventActive = true;
+            Debug.Log("SET EVENT DATA");
+        }
+
+        if (interval <= 0)
+        {
+            Debug.Log("Time Up : " + state);
+            switch (state)
             {
                 case ClothState.Wet: state = ClothState.MostlyWet; break;
                 case ClothState.MostlyWet: state = ClothState.MostlyDry; break;
@@ -40,8 +47,9 @@ public class DragAndDropComponent : MonoBehaviour
         }
     }
 
-    private void OnMouseDown() {
-        if(Input.GetMouseButton(0))
+    private void OnMouseDown()
+    {
+        if (Input.GetMouseButton(0))
         {
             isDragging = true;
         }
@@ -63,7 +71,8 @@ public class DragAndDropComponent : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && !isTouchLine)
         {
             transform.position = defaultPos;
-        } else
+        }
+        else
         {
             isDrying = true;
         }
@@ -71,7 +80,7 @@ public class DragAndDropComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Line"))
+        if (collision.CompareTag("Line"))
         {
             isTouchLine = true;
         }
