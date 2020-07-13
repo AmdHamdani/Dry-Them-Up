@@ -20,7 +20,7 @@ public class WeatherSystem : MonoBehaviour
     private void Start()
     {
         SetWeather();
-        Debug.Log(mainWeather.GetText());
+        //Debug.Log(mainWeather.GetText());
         InGameUI.Instance.skyText.text = mainWeather.GetText();
     }
 
