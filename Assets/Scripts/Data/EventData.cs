@@ -15,4 +15,6 @@ public class OptionStr
 {
     public string choice;
     public OptionResult result;
+    [TextArea]
+    public string detail;
 }
