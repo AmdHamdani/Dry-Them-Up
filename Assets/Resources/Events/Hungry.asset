@@ -17,6 +17,16 @@ MonoBehaviour:
   choiceOne:
     choice: Buy some food
     result: 2
+    detail: 'You decide to buy some ingredients . . .
+
+      You back at home a few
+      hours later . . .'
   choiceTwo:
-    choice: 
-    result: 0
+    choice: Cook noodle
+    result: 2
+    detail: 'Indomie will taste good . . .
+
+      You go to the kitchen and cook
+      indomie . . .
+
+      You enjoy your meal . . .'

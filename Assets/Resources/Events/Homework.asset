@@ -16,7 +16,21 @@ MonoBehaviour:
   eventText: "I need to finish my homework . . .\t"
   choiceOne:
     choice: Let's finish it
-    result: 1
+    result: 2
+    detail: 'You are back to your room . . .
+
+      And working on your homework
+      . . .
+
+      For several hour . . .'
   choiceTwo:
-    choice: 
-    result: 0
+    choice: I'll do it later
+    result: 1
+    detail: 'You decide to wait for your clothes . . .
+
+      A few hours has passed
+      . . .
+
+      Your clothes should be dry . . .
+
+'

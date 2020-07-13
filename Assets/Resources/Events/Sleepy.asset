@@ -17,6 +17,12 @@ MonoBehaviour:
   choiceOne:
     choice: Take a nap
     result: 2
+    detail: 'You are pretty sleepy . . .
+
+      And you take a nap in sofa . . .'
   choiceTwo:
     choice: I can't
     result: 1
+    detail: 'I can''t sleep now . . .
+
+      Need to wait for that clothes . . .'

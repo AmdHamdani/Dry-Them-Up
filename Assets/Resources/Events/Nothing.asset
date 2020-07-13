@@ -17,6 +17,11 @@ MonoBehaviour:
   choiceOne:
     choice: Just Wait
     result: 1
+    detail: 'A few hour pass . . .
+
+      It is the time to take the clothes . .
+      .'
   choiceTwo:
     choice: 
     result: 0
+    detail: 

@@ -17,6 +17,14 @@ MonoBehaviour:
   choiceOne:
     choice: Ok, let's go
     result: 2
+    detail: 'You go to your friend as fast as possible . . .
+
+      You have chit
+      - chat with her for a few hours . . .'
   choiceTwo:
-    choice: Nope Iam busy
+    choice: Nope I am busy
     result: 1
+    detail: 'You are busy waiting your clothes . . .
+
+      Your friend can wait
+      later . . .'
