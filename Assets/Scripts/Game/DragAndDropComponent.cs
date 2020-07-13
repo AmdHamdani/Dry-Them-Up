@@ -7,7 +7,6 @@ public class DragAndDropComponent : MonoBehaviour
     private bool isDragging;
     private bool isTouchLine;
     private bool isDrying;
-    private bool isEventActive;
     private float interval;
     private float targetTime;
     private Vector3 defaultPos;
@@ -26,16 +25,9 @@ public class DragAndDropComponent : MonoBehaviour
 
         interval -= Time.deltaTime;
 
-        if (!isEventActive && state == ClothState.MostlyWet)
-        {
-            GameEventSystem.Instance.SetEventData();
-            isEventActive = true;
-            Debug.Log("SET EVENT DATA");
-        }
-
         if (interval <= 0)
         {
-            Debug.Log("Time Up : " + state);
+            //Debug.Log("Time Up : " + state);
             switch (state)
             {
                 case ClothState.Wet: state = ClothState.MostlyWet; break;
@@ -96,7 +88,7 @@ public class DragAndDropComponent : MonoBehaviour
 
     private void SetInterval(ClothState state)
     {
-        Debug.Log("State is Change to " + state);
+        //Debug.Log("State is Change to " + state);
         interval = ClothStateInterval.Instance.GetInterval(state);
     }
 
