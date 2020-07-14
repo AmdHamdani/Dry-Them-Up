@@ -34,6 +34,17 @@ public class WeatherSystem : MonoBehaviour
         result = weatherData.GetResult(mainWeather.weatherName, secondaryWeather.weatherName);
     }
 
+    public string GetResultText()
+    {
+        switch(result)
+        {
+            case WeatherResult.BlownUp: return "Your clothes is blown up by the wind . . .";
+            case WeatherResult.Wet: return "Your clothes are wet . . .";
+            case WeatherResult.Dry: return "Your clothers are dry now . . .";
+            default: return string.Empty;
+        }
+    }
+
     public void SetSkyText(string text)
     {
         InGameUI.Instance.skyText.text = text;
