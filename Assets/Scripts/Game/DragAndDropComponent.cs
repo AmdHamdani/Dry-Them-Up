@@ -8,7 +8,7 @@ public class DragAndDropComponent : MonoBehaviour
     private bool isTouchLine;
     private bool isDrying;
     private float interval;
-    private float targetTime;
+
     private Vector3 defaultPos;
     private Vector3 currentPosition;
 
@@ -27,7 +27,6 @@ public class DragAndDropComponent : MonoBehaviour
 
         if (interval <= 0)
         {
-            //Debug.Log("Time Up : " + state);
             switch (state)
             {
                 case ClothState.Wet: state = ClothState.MostlyWet; break;
@@ -88,7 +87,6 @@ public class DragAndDropComponent : MonoBehaviour
 
     private void SetInterval(ClothState state)
     {
-        //Debug.Log("State is Change to " + state);
         interval = ClothStateInterval.Instance.GetInterval(state);
     }
 
