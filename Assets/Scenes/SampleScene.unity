@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 281239846}
   - component: {fileID: 281239845}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Panel Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1343,6 +1343,9 @@ MonoBehaviour:
   leftChoiceText: {fileID: 1645528637}
   rightChoice: {fileID: 856321237}
   rightChoiceText: {fileID: 596703929}
+  panel: {fileID: 45525380}
+  panelImage: {fileID: 45525382}
+  panelText: {fileID: 281239845}
 --- !u!114 &867604479
 MonoBehaviour:
   m_ObjectHideFlags: 0
