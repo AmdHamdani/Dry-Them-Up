@@ -22,6 +22,8 @@ public class WeatherSystem : MonoBehaviour
         SetWeather();
         //Debug.Log(mainWeather.GetText());
         InGameUI.Instance.skyText.text = mainWeather.GetText();
+
+        StartCoroutine(Fun.WaitFor(1f, () => InGameUI.Instance.skyText.text = string.Empty));
     }
 
     public void SetWeather()
