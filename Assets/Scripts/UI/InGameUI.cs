@@ -1,4 +1,5 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class InGameUI : SingletonBehaviour<InGameUI>
 {
@@ -8,5 +9,8 @@ public class InGameUI : SingletonBehaviour<InGameUI>
     public Text leftChoiceText;
     public Button rightChoice;
     public Text rightChoiceText;
+    public GameObject panel;
+    public Image panelImage;
+    public Text panelText;
 
 }
