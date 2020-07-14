@@ -9,8 +9,13 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
     public EventDataDB database;
     public DragAndDropComponent[] components;
 
-    private bool isEventActive;
+    private bool isEventActive = false;
     private bool isFinish = false;
+
+    private float tweenSpeed = 1f;
+    private bool runTween = false;
+    private Color targetColor = Color.black;
+    private System.Action OnTweenCompleted;
 
     private void Awake()
     {
@@ -35,6 +40,11 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
         if (!isFinish && IsTrue(ClothState.Dry))
         {
             isFinish = true;
+        }
+
+        if (runTween)
+        {
+            TweenColor();
         }
     }
 
@@ -85,11 +95,11 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
         switch (result)
         {
             case OptionResult.Num: score += components.Length; break;
-            case OptionResult.RandomNum: 
+            case OptionResult.RandomNum:
                 int random = Random.Range(0, components.Length);
                 int loop = components.Length - random;
                 score += random;
-                for(int i = 0; i < loop; i++)
+                for (int i = 0; i < loop; i++)
                 {
                     components[i].gameObject.SetActive(false);
                 }
@@ -109,17 +119,39 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
     private void ShowPanel(string detail)
     {
         InGameUI.Instance.panel.SetActive(true);
-        InGameUI.Instance.panelImage.color = Color.white;
-        InGameUI.Instance.panelText.text = detail;
+        tweenSpeed = 7;
+        runTween = true;
 
-        StartCoroutine(Fun.WaitFor(1f, () => {
-            InGameUI.Instance.panel.SetActive(false);
-            foreach (var item in components)
+        StartCoroutine(Fun.WaitFor(.2f, () => InGameUI.Instance.panelText.text = detail));
+
+        OnTweenCompleted = () =>
+        {
+            InGameUI.Instance.panelImage.color = Color.black;
+
+            StartCoroutine(Fun.WaitFor(2f, () =>
             {
-                item.state = ClothState.Dry;
-            }
-            GetResult();
-        }));
+                InGameUI.Instance.panel.SetActive(false);
+                foreach (var item in components)
+                {
+                    item.state = ClothState.Dry;
+                }
+                GetResult();
+            }));
+        };
+    }
+
+    private void TweenColor()
+    {
+        if (!(InGameUI.Instance.panelImage.color == targetColor))
+        {
+            Debug.Log("RUN TWEEN");
+            InGameUI.Instance.panelImage.color = Color.Lerp(InGameUI.Instance.panelImage.color, targetColor, tweenSpeed * Time.deltaTime);
+        }
+        else
+        {
+            runTween = false;
+            OnTweenCompleted?.Invoke();
+        }
     }
 
 }
