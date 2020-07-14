@@ -63,4 +63,10 @@ public sealed class Fun
             OnFalse?.Invoke();
         }
     }
+
+    public static IEnumerator WaitFor(float time, System.Action OnCompleted)
+    {
+        yield return new WaitForSeconds(time);
+        OnCompleted?.Invoke();
+    }
 }
