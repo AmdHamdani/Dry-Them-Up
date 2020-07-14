@@ -11,6 +11,7 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
 
     private bool isEventActive = false;
     private bool isFinish = false;
+    private WeatherSystem weatherSystem;
 
     private float tweenSpeed = 1f;
     private bool runTween = false;
@@ -20,6 +21,7 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
     private void Awake()
     {
         components = FindObjectsOfType<DragAndDropComponent>();
+        weatherSystem = FindObjectOfType<WeatherSystem>();
     }
 
     private void Start()
@@ -130,12 +132,14 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
 
             StartCoroutine(Fun.WaitFor(2f, () =>
             {
+                GetResult();
+                InGameUI.Instance.skyText.text = weatherSystem.GetResultText();
                 InGameUI.Instance.panel.SetActive(false);
                 foreach (var item in components)
                 {
                     item.state = ClothState.Dry;
                 }
-                GetResult();
+                StartCoroutine(Fun.WaitFor(2f, () => InGameUI.Instance.skyText.text = string.Empty));
             }));
         };
     }
@@ -144,7 +148,6 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
     {
         if (!(InGameUI.Instance.panelImage.color == targetColor))
         {
-            Debug.Log("RUN TWEEN");
             InGameUI.Instance.panelImage.color = Color.Lerp(InGameUI.Instance.panelImage.color, targetColor, tweenSpeed * Time.deltaTime);
         }
         else
