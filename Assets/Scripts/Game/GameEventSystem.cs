@@ -97,18 +97,38 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
         switch (result)
         {
             case OptionResult.Num: score += components.Length; break;
-            case OptionResult.RandomNum:
-                int random = Random.Range(0, components.Length);
-                int loop = components.Length - random;
-                score += random;
+            case OptionResult.RandomNum: ProcessRandomScore(); break;
+        }
+        Debug.Log(components.Length);
+        Debug.Log("Score : " + score);
+    }
+
+    private void ProcessRandomScore()
+    {
+        int loop = 0;
+        switch (weatherSystem.result)
+        {
+            case WeatherResult.Dry: score += components.Length; break;
+            case WeatherResult.BlownUp:
+                loop = GetRandomScore();
                 for (int i = 0; i < loop; i++)
                 {
                     components[i].gameObject.SetActive(false);
                 }
                 break;
+            case WeatherResult.Wet:
+                loop = GetRandomScore();
+                // TODO: Make the clothes wet
+                break;
         }
-        Debug.Log(components.Length);
-        Debug.Log("Score : " + score);
+    }
+
+    private int GetRandomScore()
+    {
+        int random = Random.Range(0, components.Length);
+        int loop = components.Length - random;
+        score += random;
+        return loop;
     }
 
     private void ClearUIText()
