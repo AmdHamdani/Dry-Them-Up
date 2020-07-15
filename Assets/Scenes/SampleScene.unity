@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1286,6 +1286,7 @@ GameObject:
   - component: {fileID: 867604476}
   - component: {fileID: 867604478}
   - component: {fileID: 867604479}
+  - component: {fileID: 867604480}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1363,6 +1364,19 @@ MonoBehaviour:
   result: 0
   database: {fileID: 0}
   components: []
+--- !u!114 &867604480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867604475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1f8a449d2b4aa438c5d1041433c664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: 0
 --- !u!1 &1100197839
 GameObject:
   m_ObjectHideFlags: 0
