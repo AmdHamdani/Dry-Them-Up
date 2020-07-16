@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEventSystem : SingletonBehaviour<GameEventSystem>
 {
@@ -27,6 +28,11 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
     private void Start()
     {
         database = EventDataDB.Load();
+
+        InGameUI.Instance.replayButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("Game");
+        });
 
         ClearUIText();
     }
@@ -99,8 +105,6 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
             case OptionResult.Num: score += components.Length; break;
             case OptionResult.RandomNum: ProcessRandomScore(); break;
         }
-        Debug.Log(components.Length);
-        Debug.Log("Score : " + score);
     }
 
     private void ProcessRandomScore()
@@ -154,12 +158,22 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
             {
                 GetResult();
                 InGameUI.Instance.skyText.text = weatherSystem.GetResultText();
+                if(result == OptionResult.Num)
+                {
+                    InGameUI.Instance.skyText.text = "Congrats!!! Your clothers are dry now . . .";
+                }
                 InGameUI.Instance.panel.SetActive(false);
+                InGameUI.Instance.leftChoice.gameObject.SetActive(false);
+                InGameUI.Instance.rightChoice.gameObject.SetActive(false);
                 foreach (var item in components)
                 {
                     item.state = ClothState.Dry;
                 }
-                StartCoroutine(Fun.WaitFor(2f, () => InGameUI.Instance.skyText.text = string.Empty));
+                StartCoroutine(Fun.WaitFor(2f, () => 
+                { 
+                    InGameUI.Instance.skyText.text = string.Empty;
+                    InGameUI.Instance.replayObject.SetActive(true);
+                }));
             }));
         };
     }
