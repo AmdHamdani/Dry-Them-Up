@@ -12,5 +12,7 @@ public class InGameUI : SingletonBehaviour<InGameUI>
     public GameObject panel;
     public Image panelImage;
     public Text panelText;
+    public GameObject replayObject;
+    public Button replayButton;
 
 }
