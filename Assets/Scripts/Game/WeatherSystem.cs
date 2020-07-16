@@ -40,7 +40,7 @@ public class WeatherSystem : MonoBehaviour
         {
             case WeatherResult.BlownUp: return "Your clothes is blown up by the wind . . .";
             case WeatherResult.Wet: return "Your clothes are wet . . .";
-            case WeatherResult.Dry: return "Your clothers are dry now . . .";
+            case WeatherResult.Dry: return "Congrats!!! Your clothers are dry now . . .";
             default: return string.Empty;
         }
     }
