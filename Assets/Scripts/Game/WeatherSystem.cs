@@ -20,10 +20,24 @@ public class WeatherSystem : MonoBehaviour
     private void Start()
     {
         SetWeather();
-        //Debug.Log(mainWeather.GetText());
+
         InGameUI.Instance.skyText.text = mainWeather.GetText();
 
+        SetSkyColor();
+
         StartCoroutine(Fun.WaitFor(1f, () => InGameUI.Instance.skyText.text = string.Empty));
+    }
+
+    private void SetSkyColor()
+    {
+        if (mainWeather.weatherName == "cloudy")
+        {
+            Camera.main.backgroundColor = SkyColor.Instance.cloudy;
+        }
+        else
+        {
+            Camera.main.backgroundColor = SkyColor.Instance.sunny;
+        }
     }
 
     public void SetWeather()
@@ -36,7 +50,7 @@ public class WeatherSystem : MonoBehaviour
 
     public string GetResultText()
     {
-        switch(result)
+        switch (result)
         {
             case WeatherResult.BlownUp: return "Your clothes is blown up by the wind . . .";
             case WeatherResult.Wet: return "Your clothes are wet . . .";
