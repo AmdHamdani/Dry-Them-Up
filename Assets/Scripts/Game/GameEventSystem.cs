@@ -23,6 +23,8 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
     {
         components = FindObjectsOfType<DragAndDropComponent>();
         weatherSystem = FindObjectOfType<WeatherSystem>();
+
+        ClearUIText();
     }
 
     private void Start()
@@ -33,8 +35,6 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
         {
             SceneManager.LoadScene("Game");
         });
-
-        ClearUIText();
     }
 
     private void Update()
@@ -158,7 +158,7 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
             {
                 GetResult();
                 InGameUI.Instance.skyText.text = weatherSystem.GetResultText();
-                if(result == OptionResult.Num)
+                if (result == OptionResult.Num)
                 {
                     InGameUI.Instance.skyText.text = "Congrats!!! Your clothers are dry now . . .";
                 }
@@ -169,8 +169,8 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
                 {
                     item.state = ClothState.Dry;
                 }
-                StartCoroutine(Fun.WaitFor(2f, () => 
-                { 
+                StartCoroutine(Fun.WaitFor(2f, () =>
+                {
                     InGameUI.Instance.skyText.text = string.Empty;
                     InGameUI.Instance.replayObject.SetActive(true);
                 }));
