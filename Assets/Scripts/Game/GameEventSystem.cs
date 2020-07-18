@@ -171,7 +171,6 @@ public class GameEventSystem : SingletonBehaviour<GameEventSystem>
                 }
                 StartCoroutine(Fun.WaitFor(2f, () =>
                 {
-                    InGameUI.Instance.skyText.text = string.Empty;
                     InGameUI.Instance.replayObject.SetActive(true);
                 }));
             }));

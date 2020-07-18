@@ -66,6 +66,7 @@ public class DragAndDropComponent : MonoBehaviour
         else
         {
             isDrying = true;
+            SFXPlayer.Instance.Play();
         }
     }
 
