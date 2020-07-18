@@ -322,6 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448422422}
   - component: {fileID: 448422423}
+  - component: {fileID: 448422424}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -356,6 +357,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 599745005}
+--- !u!114 &448422424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448422421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dab484bd25b92469dcd831a59241d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  font: {fileID: 12800000, guid: 4b5f93acfcf1fb5459301def1b0653a5, type: 3}
 --- !u!1001 &475588539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,8 +562,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -80}
-  m_SizeDelta: {x: 0, y: 35}
+  m_AnchoredPosition: {x: 0, y: -90}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &599745003
 MonoBehaviour:
@@ -1942,7 +1956,7 @@ PrefabInstance:
     - target: {fileID: 5692033696358729681, guid: 9860a470bcffcb549ab9ec56806edf6a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5692033696358729681, guid: 9860a470bcffcb549ab9ec56806edf6a,
         type: 3}
@@ -2011,7 +2025,7 @@ PrefabInstance:
     - target: {fileID: 6659185809220408258, guid: 346b0134a2702414182a1d85ed36917e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6659185809220408258, guid: 346b0134a2702414182a1d85ed36917e,
         type: 3}
